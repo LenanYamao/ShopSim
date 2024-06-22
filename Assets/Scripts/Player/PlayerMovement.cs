@@ -1,23 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+namespace PlayerControl
 {
-    // Handle player movement
-    public float moveSpeed = 5f;
-    public Rigidbody2D rb;
-
-    Vector2 movement;
-
-    private void Update()
+    public class PlayerMovement : MonoBehaviour, IPlayerController
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        // Handle player movement
+        [SerializeField] private float moveSpeed = 5f;
+        private Rigidbody2D _rb;
+        private FrameInput _frameInput;
+
+        public Vector2 FrameInput => _frameInput.Move;
+
+        private void Awake()
+        {
+            _rb = GetComponent<Rigidbody2D>();
+        }
+
+        private void Update()
+        {
+            GatherInput();
+        }
+
+        private void GatherInput()
+        {
+            _frameInput = new FrameInput
+            {
+                Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"))
+            };
+        }
+
+        private void FixedUpdate()
+        {
+            _rb.MovePosition(_rb.position + _frameInput.Move.normalized * moveSpeed * Time.fixedDeltaTime);
+        }
     }
 
-    private void FixedUpdate()
+    public struct FrameInput
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        public Vector2 Move;
+    }
+
+    public interface IPlayerController
+    {
+        public Vector2 FrameInput { get; }
     }
 }
