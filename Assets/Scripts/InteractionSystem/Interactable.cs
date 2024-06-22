@@ -8,5 +8,6 @@ public class Interactable : MonoBehaviour, IInteractable
     public void Interact()
     {
         Debug.Log("Khajit has wares if you have coin.");
+        GameManager.Instance.ToggleShop();
     }
 }

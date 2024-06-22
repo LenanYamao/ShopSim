@@ -8,12 +8,21 @@ namespace PlayerControl
         [SerializeField] private float moveSpeed = 5f;
         private Rigidbody2D _rb;
         private FrameInput _frameInput;
+        private bool _canMove = true;
 
         public Vector2 FrameInput => _frameInput.Move;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+        }
+        private void OnEnable()
+        {
+            GameManager.Instance.movementChanged += onMoveChanged;
+        }
+        private void OnDisable()
+        {
+            GameManager.Instance.movementChanged -= onMoveChanged;
         }
 
         private void Update()
@@ -23,6 +32,18 @@ namespace PlayerControl
 
         private void GatherInput()
         {
+            if (Input.GetButtonDown("Inventory"))
+            {
+                GameManager.Instance.ToggleInventory();
+            }
+            if (!_canMove)
+            {
+                _frameInput = new FrameInput
+                {
+                    Move = Vector2.zero
+                };
+                return;
+            }
             _frameInput = new FrameInput
             {
                 Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"))
@@ -31,7 +52,14 @@ namespace PlayerControl
 
         private void FixedUpdate()
         {
+            if (!_canMove)
+                return;
             _rb.MovePosition(_rb.position + _frameInput.Move.normalized * moveSpeed * Time.fixedDeltaTime);
+        }
+
+        private void onMoveChanged(bool canMove)
+        {
+            _canMove = canMove;
         }
     }
 
