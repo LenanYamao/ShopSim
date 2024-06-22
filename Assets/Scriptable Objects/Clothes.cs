@@ -10,6 +10,7 @@ public class Clothes : ScriptableObject
     public Slot slot;
     public string clotheName;
     public float clothePrice;
+    public Sprite itemIcon;
 
     [Header("Head")]
     public Sprite face;

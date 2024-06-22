@@ -16,7 +16,7 @@ namespace PlayerControl
         {
             _rb = GetComponent<Rigidbody2D>();
         }
-        private void OnEnable()
+        private void Start()
         {
             GameManager.Instance.movementChanged += onMoveChanged;
         }

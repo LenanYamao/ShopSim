@@ -15,6 +15,7 @@ MonoBehaviour:
   slot: 2
   clotheName: 
   clothePrice: 0
+  itemIcon: {fileID: 21300000, guid: 9d5d85df9dc54ea429ab483ffca3de56, type: 3}
   face: {fileID: 0}
   hood: {fileID: 0}
   chest: {fileID: 21300000, guid: 3d9056df586b6024fbc5b9fee2433eef, type: 3}

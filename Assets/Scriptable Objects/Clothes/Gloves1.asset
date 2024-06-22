@@ -15,16 +15,17 @@ MonoBehaviour:
   slot: 3
   clotheName: 
   clothePrice: 0
+  itemIcon: {fileID: 21300000, guid: 0922ea491b7399c4f921dcd851aab964, type: 3}
   face: {fileID: 0}
   hood: {fileID: 0}
   chest: {fileID: 0}
   shoulderL: {fileID: 0}
   shoulderR: {fileID: 0}
+  pelvis: {fileID: 0}
   wristL: {fileID: 21300000, guid: 0d8396fbd3e20f941b37c1cb7829a2e8, type: 3}
   elbowL: {fileID: 21300000, guid: 48ecbe245379f214497aae538fe1d4f3, type: 3}
   wristR: {fileID: 21300000, guid: 661842e23ba86e34abbf52c56c321411, type: 3}
   elbowR: {fileID: 21300000, guid: ece48dca5e286fd48b5dc0633b08b15d, type: 3}
-  pelvis: {fileID: 0}
   legL: {fileID: 0}
   bootL: {fileID: 0}
   legR: {fileID: 0}

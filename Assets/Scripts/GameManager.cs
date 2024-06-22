@@ -1,12 +1,11 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private UIManager _uiManager;
     public event Action<bool> movementChanged;
+    public event Action shopOpen;
     private bool canMove;
 
     private static GameManager _instance;
@@ -32,5 +31,6 @@ public class GameManager : MonoBehaviour
     {
         canMove = !_uiManager.ToggleShop();
         movementChanged?.Invoke(canMove);
+        shopOpen?.Invoke();
     }
 }
