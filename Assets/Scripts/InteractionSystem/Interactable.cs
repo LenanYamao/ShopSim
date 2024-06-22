@@ -2,18 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactable : MonoBehaviour
+public class Interactable : MonoBehaviour, IInteractable
 {
-    // Base for an interactable object
-    // Start is called before the first frame update
-    void Start()
+    // Base for an interactable object, can be expanded if needed
+    public void Interact()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("Khajit has wares if you have coin.");
     }
 }
