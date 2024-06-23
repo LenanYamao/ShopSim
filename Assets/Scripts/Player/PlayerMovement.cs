@@ -19,10 +19,12 @@ namespace PlayerControl
         private void Start()
         {
             GameManager.Instance.movementChanged += onMoveChanged;
+            GameManager.Instance.SetPlayer(gameObject);
         }
         private void OnDisable()
         {
             GameManager.Instance.movementChanged -= onMoveChanged;
+            GameManager.Instance.SetPlayer(null);
         }
 
         private void Update()

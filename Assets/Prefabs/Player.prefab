@@ -999,6 +999,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _visual: {fileID: 3107565151355091502}
+  face: {fileID: 3017221622110607136}
+  hood: {fileID: 3017221623991206030}
+  chest: {fileID: 3017221627293638202}
+  shoulderL: {fileID: 3017221624935215920}
+  shoulderR: {fileID: 3017221624763257226}
+  pelvis: {fileID: 3017221622668416980}
+  wristL: {fileID: 3017221620987939526}
+  elbowL: {fileID: 3017221624032513108}
+  wristR: {fileID: 3017221624858566216}
+  elbowR: {fileID: 3017221621077269490}
+  legL: {fileID: 3017221624594060046}
+  bootL: {fileID: 3017221621682517304}
+  legR: {fileID: 3017221624918522608}
+  bootR: {fileID: 3017221621652220084}
 --- !u!1 &3111409507991312424
 GameObject:
   m_ObjectHideFlags: 0
