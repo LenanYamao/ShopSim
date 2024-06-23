@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private UIManager _uiManager;
     [SerializeField] private InventoryManager _inventory;
+    [SerializeField] private ShopInventory _shopInventory;
     public InventoryItem itemPrefab;
     private GameObject _player;
     public event Action<bool> movementChanged;
@@ -67,6 +68,12 @@ public class GameManager : MonoBehaviour
             if (_inventory.inventory[i].item == null)
             {
                 Instantiate(itemPrefab, _inventory.inventory[i].transform).Initialize(clothe, _inventory.inventory[i]);
+
+                var item = Instantiate(GameManager.Instance.itemPrefab, _shopInventory.inventory[i].transform);
+                item.Initialize(clothe, _shopInventory.inventory[i], true);
+
+                _shopInventory.items.Add(item);
+
                 break;
             }
         }

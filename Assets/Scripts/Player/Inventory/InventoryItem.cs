@@ -33,7 +33,6 @@ public class InventoryItem : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            Debug.Log("Teste 2");
             if (myItem)
             {
                 if (!isShopInventory)

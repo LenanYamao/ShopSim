@@ -28,4 +28,19 @@ public class ShopInventory : MonoBehaviour
             }
         }
     }
+
+    public void AddItemToInventory(Clothes clothe)
+    {
+        var playerInventory = GameManager.Instance.GetPlayerInventory();
+        for (int i = 0; i < playerInventory.inventory.Count; i++)
+        {
+            if (playerInventory.inventory[i].item == null)
+            {
+                var item = Instantiate(GameManager.Instance.itemPrefab, inventory[i].transform);
+                item.Initialize(clothe, inventory[i], true);
+
+                items.Add(item);
+            }
+        }
+    }
 }

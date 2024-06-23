@@ -1240,6 +1240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiManager: {fileID: 1410239984}
   _inventory: {fileID: 1089789319}
+  _shopInventory: {fileID: 1042625312}
   itemPrefab: {fileID: 6199321549773483828, guid: a8e1cad2020dffb4c86f45f7a97f7200, type: 3}
 --- !u!4 &161601016
 Transform:
@@ -15044,6 +15045,7 @@ MonoBehaviour:
   - {fileID: 1589069518}
   - {fileID: 1141011179}
   - {fileID: 2098820073}
+  items: []
 --- !u!1 &1077253099
 GameObject:
   m_ObjectHideFlags: 0
