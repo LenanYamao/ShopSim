@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private UIManager _uiManager;
     [SerializeField] private InventoryManager _inventory;
-    [SerializeField] InventoryItem itemPrefab;
+    public InventoryItem itemPrefab;
     private GameObject _player;
     public event Action<bool> movementChanged;
     public event Action shopOpen;

@@ -6,6 +6,7 @@ public class ShopManager : MonoBehaviour
 {
     //Manage shop items
     [SerializeField] private List<Clothes> items;
+    [SerializeField] private ShopInventory shopInventory;
     [SerializeField] private GameObject itemToBuyPrefab;
 
     private void Awake()
@@ -21,9 +22,10 @@ public class ShopManager : MonoBehaviour
             }
         }
     }
-    private void Start()
+    private void OnEnable()
     {
-        GameManager.Instance.shopOpen += onShopOpen;
+        if (GameManager.Instance)
+            GameManager.Instance.shopOpen += onShopOpen;
     }
     private void OnDisable()
     {
@@ -32,7 +34,7 @@ public class ShopManager : MonoBehaviour
 
     private void onShopOpen()
     {
-
+        shopInventory.InitializeInventory();
         return;
     }
 }

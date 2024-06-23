@@ -5,6 +5,7 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     // Manages player inventory and equipment
+    // Followed a tutorial for the inventory system and tweaked it to fit what i needed
     public InventoryItem carriedItem;
     public List<InventorySlot> inventory = new List<InventorySlot>();
     public List<InventorySlot> equipmentSlots = new List<InventorySlot>();
@@ -21,7 +22,6 @@ public class InventoryManager : MonoBehaviour
     {
         if (item.activeSlot.type != Slot.None)
         {
-            print("Teste");
             GameManager.Instance.ChangeEquipment(item.activeSlot.type);
         }
 
@@ -29,6 +29,7 @@ public class InventoryManager : MonoBehaviour
         {
             if (item.activeSlot.type != Slot.None && item.activeSlot.type != carriedItem.myItem.slot) return;
             item.activeSlot.SetItem(carriedItem);
+            Debug.Log(item.activeSlot);
         }
 
         carriedItem = item;

@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class InventoryItem : MonoBehaviour, IPointerClickHandler
 {
+    // Followed a tutorial for the inventory system and tweaked it to fit what i needed
     public Image itemIcon;
     public Sprite emptyIcon;
     public CanvasGroup canvasGroup;
     public Clothes myItem { get; set; }
     public InventorySlot activeSlot { get; set; }
+    [SerializeField] private bool isShopInventory = false;
 
     void Awake()
     {
@@ -18,20 +20,32 @@ public class InventoryItem : MonoBehaviour, IPointerClickHandler
         itemIcon = GetComponent<Image>();
     }
 
-    public void Initialize(Clothes item, InventorySlot parent)
+    public void Initialize(Clothes item, InventorySlot parent, bool isShop = false)
     {
         activeSlot = parent;
         activeSlot.item = this;
         myItem = item;
         itemIcon.sprite = item.itemIcon;
+        isShopInventory = isShop;
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
+            Debug.Log("Teste 2");
             if (myItem)
-                GameManager.Instance.SetCarriedItem(this);
+            {
+                if (!isShopInventory)
+                {
+                    activeSlot.item = null;
+                    GameManager.Instance.SetCarriedItem(this);
+                }
+                else
+                {
+                    Debug.Log("Sell item");
+                }
+            }
         }
     }
 }
