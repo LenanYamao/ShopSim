@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Chest5
   m_EditorClassIdentifier: 
   slot: 2
-  clotheName: 
-  clothePrice: 0
+  clotheName: Chest Lvl 5
+  clothePrice: 300
   itemIcon: {fileID: 21300000, guid: d80f6ac669df0904ea3936f52f266588, type: 3}
   face: {fileID: 0}
   hood: {fileID: 0}

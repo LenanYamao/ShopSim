@@ -4,6 +4,7 @@ using PlayerControl;
 public class PlayerAnimation : MonoBehaviour
 {
     // Handle player animation
+    // Add Y sorting if there's enough time.
     [SerializeField] private Transform _visual;
     private IPlayerController _player;
     private Animator _animator;

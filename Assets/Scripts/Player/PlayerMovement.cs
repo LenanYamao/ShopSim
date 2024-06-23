@@ -5,6 +5,7 @@ namespace PlayerControl
     public class PlayerMovement : MonoBehaviour, IPlayerController
     {
         // Handle player movement
+        // Used a base for movement and changed it as i needed and mixed with some other code that i had.
         [SerializeField] private float moveSpeed = 5f;
         private Rigidbody2D _rb;
         private FrameInput _frameInput;

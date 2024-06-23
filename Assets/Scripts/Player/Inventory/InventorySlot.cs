@@ -8,6 +8,8 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
 {
     // Followed a tutorial for the inventory system and tweaked it to fit what i needed
     public InventoryItem item;
+    //Make items stack if there's enough time. (Did not have enough time)
+    public int amount;
     public Slot type;
     [SerializeField] private bool isShopInventory = false;
 

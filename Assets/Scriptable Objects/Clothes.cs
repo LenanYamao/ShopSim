@@ -7,6 +7,7 @@ public enum Slot { None, Head, Chest, Arm, Leg }
 public class Clothes : ScriptableObject
 {
     // Scriptable object to create clothes
+    // If there's enough time, rename the class to items
     public Slot slot;
     public string clotheName;
     public float clothePrice;

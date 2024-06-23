@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Leg1
   m_EditorClassIdentifier: 
   slot: 4
-  clotheName: 
-  clothePrice: 0
+  clotheName: Boots Lvl 1
+  clothePrice: 100
   itemIcon: {fileID: 21300000, guid: 630277e6c8fbb61489bee37ddef27627, type: 3}
   face: {fileID: 0}
   hood: {fileID: 0}

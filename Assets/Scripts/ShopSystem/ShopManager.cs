@@ -4,7 +4,9 @@ using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
-    //Manage shop items
+    // Manage shop items
+    // To-Do: Add currency to buy items if there's time left
+    // To-Do: Fix scroll starting in the middle instead of the top and not reseting
     [SerializeField] private List<Clothes> items;
     [SerializeField] private ShopInventory shopInventory;
     [SerializeField] private GameObject itemToBuyPrefab;
