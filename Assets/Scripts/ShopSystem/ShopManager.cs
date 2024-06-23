@@ -17,7 +17,7 @@ public class ShopManager : MonoBehaviour
             var shopItem = itemInstance.GetComponent<ShopItem>();
             if (shopItem)
             {
-                shopItem.setClothe(item);
+                shopItem.SetClothe(item);
             }
         }
     }

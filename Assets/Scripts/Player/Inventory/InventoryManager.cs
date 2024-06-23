@@ -10,8 +10,6 @@ public class InventoryManager : MonoBehaviour
     public List<InventorySlot> equipmentSlots = new List<InventorySlot>();
     [SerializeField] private Transform draggablesTransform;
 
-    private int maxInventorySize = 30;
-
     private void Update()
     {
         if (!carriedItem) return;
@@ -21,15 +19,16 @@ public class InventoryManager : MonoBehaviour
 
     public void SetCarriedItem(InventoryItem item)
     {
+        if (item.activeSlot.type != Slot.None)
+        {
+            print("Teste");
+            GameManager.Instance.ChangeEquipment(item.activeSlot.type);
+        }
+
         if (carriedItem != null)
         {
             if (item.activeSlot.type != Slot.None && item.activeSlot.type != carriedItem.myItem.slot) return;
             item.activeSlot.SetItem(carriedItem);
-        }
-
-        if (item.activeSlot.type != Slot.None)
-        {
-            GameManager.Instance.ChangeEquipment(item.activeSlot.type);
         }
 
         carriedItem = item;
@@ -37,15 +36,4 @@ public class InventoryManager : MonoBehaviour
         item.transform.SetParent(draggablesTransform);
     }
 
-    public void AddItemToInventory(InventorySlot item)
-    {
-        if (inventory.Count < maxInventorySize)
-        {
-            inventory.Add(item);
-        }
-        else
-        {
-            Debug.Log("Inventory full");
-        }
-    }
 }

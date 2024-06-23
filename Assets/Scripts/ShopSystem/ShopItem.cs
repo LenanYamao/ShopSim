@@ -15,7 +15,10 @@ public class ShopItem : MonoBehaviour, IPointerDownHandler, IPointerExitHandler,
     // Handle shop item mouse events
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("Mouse Down");
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            GameManager.Instance.AddItemToInventory(_clothe);
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -28,7 +31,7 @@ public class ShopItem : MonoBehaviour, IPointerDownHandler, IPointerExitHandler,
         focus.SetActive(false);
     }
 
-    public void setClothe(Clothes clothe)
+    public void SetClothe(Clothes clothe)
     {
         _clothe = clothe;
         itemName.text = _clothe.clotheName;

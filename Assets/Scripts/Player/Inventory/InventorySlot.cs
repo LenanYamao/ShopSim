@@ -23,6 +23,12 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
 
     public void SetItem(InventoryItem inventoryItem)
     {
+        var inventory = GameManager.Instance.GetPlayerInventory();
+
+        inventory.carriedItem = null;
+
+        inventoryItem.activeSlot.item = null;
+
         // Set current slot
         item = inventoryItem;
         item.activeSlot = this;

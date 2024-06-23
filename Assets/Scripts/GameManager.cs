@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private UIManager _uiManager;
     [SerializeField] private InventoryManager _inventory;
+    [SerializeField] InventoryItem itemPrefab;
     private GameObject _player;
     public event Action<bool> movementChanged;
     public event Action shopOpen;
@@ -57,5 +58,17 @@ public class GameManager : MonoBehaviour
     {
         if (!_player) return null;
         return _inventory;
+    }
+    public void AddItemToInventory(Clothes clothe)
+    {
+        for (int i = 0; i < _inventory.inventory.Count; i++)
+        {
+            // Check if the slot is empty
+            if (_inventory.inventory[i].item == null)
+            {
+                Instantiate(itemPrefab, _inventory.inventory[i].transform).Initialize(clothe, _inventory.inventory[i]);
+                break;
+            }
+        }
     }
 }

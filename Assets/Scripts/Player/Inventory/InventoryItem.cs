@@ -12,6 +12,12 @@ public class InventoryItem : MonoBehaviour, IPointerClickHandler
     public Clothes myItem { get; set; }
     public InventorySlot activeSlot { get; set; }
 
+    void Awake()
+    {
+        canvasGroup = GetComponent<CanvasGroup>();
+        itemIcon = GetComponent<Image>();
+    }
+
     public void Initialize(Clothes item, InventorySlot parent)
     {
         activeSlot = parent;
