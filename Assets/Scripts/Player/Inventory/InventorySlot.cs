@@ -18,7 +18,6 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
         {
             if (!isShopInventory)
             {
-                Debug.Log("Teste1");
                 var playerInventory = GameManager.Instance.GetPlayerInventory();
                 if (playerInventory.carriedItem == null) return;
                 if (type != Slot.None && playerInventory.carriedItem.myItem.slot != type) return;
@@ -29,7 +28,6 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
 
     public void SetItem(InventoryItem inventoryItem)
     {
-        Debug.Log(inventoryItem);
         var inventory = GameManager.Instance.GetPlayerInventory();
 
         inventory.carriedItem = null;

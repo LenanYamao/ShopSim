@@ -42,7 +42,7 @@ public class InventoryItem : MonoBehaviour, IPointerClickHandler
                 }
                 else
                 {
-                    Debug.Log("Sell item");
+                    GameManager.Instance.RemoveItemFromInventory(this);
                 }
             }
         }

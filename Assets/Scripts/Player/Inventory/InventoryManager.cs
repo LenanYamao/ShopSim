@@ -8,6 +8,7 @@ public class InventoryManager : MonoBehaviour
     // Followed a tutorial for the inventory system and tweaked it to fit what i needed
     public InventoryItem carriedItem;
     public List<InventorySlot> inventory = new List<InventorySlot>();
+    public List<InventoryItem> items = new List<InventoryItem>();
     public List<InventorySlot> equipmentSlots = new List<InventorySlot>();
     [SerializeField] private Transform draggablesTransform;
 

@@ -67,9 +67,12 @@ public class GameManager : MonoBehaviour
             // Check if the slot is empty
             if (_inventory.inventory[i].item == null)
             {
-                Instantiate(itemPrefab, _inventory.inventory[i].transform).Initialize(clothe, _inventory.inventory[i]);
+                var itemInv = Instantiate(itemPrefab, _inventory.inventory[i].transform);
+                itemInv.Initialize(clothe, _inventory.inventory[i]);
 
-                var item = Instantiate(GameManager.Instance.itemPrefab, _shopInventory.inventory[i].transform);
+                _inventory.items.Add(itemInv);
+
+                var item = Instantiate(itemPrefab, _shopInventory.inventory[i].transform);
                 item.Initialize(clothe, _shopInventory.inventory[i], true);
 
                 _shopInventory.items.Add(item);
@@ -77,5 +80,22 @@ public class GameManager : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void RemoveItemFromInventory(InventoryItem itemToRemove)
+    {
+        _shopInventory.items.Remove(itemToRemove);
+
+        for (int i = 0; i < _inventory.items.Count; i++)
+        {
+            if (_inventory.items[i].myItem == itemToRemove.myItem)
+            {
+                _inventory.items[i].activeSlot.item = null;
+                Destroy(_inventory.items[i].gameObject);
+                _inventory.items.RemoveAt(i);
+            }
+        }
+
+        Destroy(itemToRemove.gameObject);
     }
 }
